@@ -1,11 +1,33 @@
-<ol class="breadcrumb">
-  <li>
-    <i class="fa fa-list"></i> <%= link_to 'Lists', lists_path %>
-  </li>
-  <li class="active">
-    <i class="fa fa-comments"></i> Basic
-  </li>
-  <li class="active">
-    </i> <%= @phrase.chinese %>
-  </li>
-</ol>
+<div class="panel panel-warning">
+    <div class="panel-heading">
+      <voice-player id="ch-<%= @phrase.id %>" accent="zh-CH" text="<%= @phrase.chinese %>"></voice-player>
+              <script>
+              window.addEventListener('polymer-ready', function(e) {
+                  var form = document.querySelector('#ch-f-<%= @phrase.id %>'),
+                      element = document.querySelector('#ch-<%= @phrase.id %>');
+
+                  form.addEventListener('submit', function(e) {
+                      e.preventDefault();
+                      element.speak();
+                  });
+              });
+              </script>
+
+              <form id="ch-f-<%= @phrase.id %>" class="pull-right">
+                <fieldset>
+                  <button class="btn btn-lg btn-default"><i class="fa fa-microphone"></i></button>
+                </fieldset>
+              </form>
+
+        <ruby>
+          <rb class="panel-title chinese"><%= @phrase.chinese %></rb>
+          <rt class="pinyin"><%= @phrase.pinyin %></rt>
+        </ruby>
+        <p>Definition: <%= @phrase.definition %></p>
+    </div>
+    <div class="panel-body">
+        <form role="form">
+          <textarea class="form-control" rows="3" placeholder="Notes"></textarea>
+        </form>
+    </div>
+  </div>

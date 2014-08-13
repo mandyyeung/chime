@@ -1,8 +1,9 @@
 class PhrasesController < ApplicationController
 
   def new
-    add_breadcrumb '<a href="/lists"><i class="fa fa-list"></i> Home</a>'.html_safe
     @list = List.find(params[:list_id])
+    add_breadcrumb '<a href="/lists"><i class="fa fa-list"></i> Home</a>'.html_safe
+    add_breadcrumb "<a href='/lists/#{@list.id}'><i class='fa #{@list.icon}'></i> #{@list.name}</a>".html_safe    
     @phrase = @list.phrases.build
   end
 
@@ -11,7 +12,7 @@ class PhrasesController < ApplicationController
     @phrase = @list.phrases.build(phrase_params)
     respond_to do |format|
       if @phrase.save
-        format.html { redirect_to phrase_path(@list,@phrase), notice: 'Phrase was successfully created' }
+        format.html { redirect_to phrase_path(@phrase), notice: 'Phrase was successfully created' }
       else
         format.html { render action: 'new'}
       end
@@ -36,6 +37,10 @@ class PhrasesController < ApplicationController
 
   def show
     set_phrase
+    add_breadcrumb '<a href="/lists"><i class="fa fa-list"></i> Home</a>'.html_safe
+    add_breadcrumb "<a href='/lists/#{set_phrase.list.id}'><i class='fa #{set_phrase.list.icon}'></i> #{set_phrase.list.name}</a>".html_safe
+    add_breadcrumb "#{set_phrase.chinese}".html_safe
+
   end
 
   def index

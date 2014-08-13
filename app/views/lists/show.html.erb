@@ -1,5 +1,5 @@
 <% if @list.phrases %>
-<h3><%= @list.name %></h3>
+<h3><%= @list.name %> (<%= @list.phrases.count %>)</h3>
 <% @list.phrases.each do |p| %>
   <div class="panel panel-info">
     <div class="panel-heading">
@@ -26,7 +26,11 @@
           <rb class="panel-title chinese"><%= p.chinese %></rb>
           <rt class="pinyin"><%= p.pinyin %></rt>
         </ruby>
-        <p>Definition: <%= p.definition %> &nbsp; <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_phrase_path(p.id) %></p>
+        <p>Definition: <%= p.definition %>
+        <span class="pull-right"><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_phrase_path(p.id) %>
+        <%= link_to '<i class="fa fa-plus-square"></i>'.html_safe, phrase_path(p.id) %>
+        </span>
+        </p>
     </div>
     <div class="panel-body">
         <form role="form">
