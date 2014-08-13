@@ -1,0 +1,97 @@
+a:hover {
+  text-decoration: none;
+}
+
+.navbar-brand {
+  font-family: 'Lobster Two', cursive;
+  font-size: 24px;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #fc4;
+  -webkit-transition: color 500ms ease-out 200ms;
+  -moz-transition: color 500ms ease-out 200ms;
+  -o-transition: color 500ms ease-out 200ms;
+  transition: color 500ms ease-out 200ms;
+}
+
+.navbar-inverse .navbar-brand:hover {
+  color: #ccc;
+}
+
+#content {
+  padding: 10px;
+}
+
+.chinese {
+  font-size: 5em;
+}
+
+.pinyin {
+  font-size: 1em;
+}
+
+.slogan {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.5em;
+  position: absolute;
+  top: 17px;
+  left: 105px;
+}
+
+textarea {
+  border: none;
+  border-color: Transparent;
+  overflow: auto;
+}
+
+.modal-dialog {
+  width: 450px;
+}
+
+.modal-header, .modal-footer {
+  background-color: #ccc;
+}
+
+/* BACKGROUND VIDEO */
+
+.video-section .pattern-overlay {
+  top: 0;
+  background-color: rgba(71, 71, 71, 0.59);
+  padding: 110px 0 32px;
+  min-height: 496px;
+  /* Incase of overlay problems just increase the min-height*/
+}
+.video-section h1, .video-section h3{
+  text-align:center;
+  color:#fff;
+}
+.video-section h1{
+  font-size:110px;
+  font-family: 'Lobster Two', cursive;
+  color: #fc4;
+  margin: 40px auto 0px;
+  text-shadow: 1px 1px 1px #000;
+  -webkit-text-shadow: 1px 1px 1px #000;
+  -moz-text-shadow: 1px 1px 1px #000;
+}
+.video-section h3{
+  font-size: 25px;
+  font-weight:lighter;
+  margin: 0px auto 15px;
+}
+.video-section .buttonBar{
+  display:none;
+  }
+.player {
+  font-size: 1px;
+  }
+
+.top {position: absolute;
+      top: 13px;
+      right: 13px;
+      color: #fff;}
+
+.main_link, .main_link:hover {
+  color: #fff;
+}

@@ -1,0 +1,33 @@
+<%= form_for [@list, @phrase] do |f| %>
+  <% if @phrase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@phrase.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @phrase.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :chinese %><br>
+    <%= f.text_field :chinese, class: "form-control"  %><br>
+  </div>
+
+  <div class="field">
+    <%= f.label :pinyin %><br>
+    <%= f.text_field :pinyin, class: "form-control"  %><br>
+  </div>
+
+  <div class="field">
+    <%= f.label :definition %><br>
+    <%= f.text_field :definition, class: "form-control"  %><br>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chime</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag '/assets/favicon.ico' %>
+  <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lobster+Two:700italic' rel='stylesheet' type='text/css'>
+  <link rel="import" href="http://localhost:3000/voice-elements/voice-player.html">
+  <link rel="import" href="http://localhost:3000/voice-elements/voice-recognition.html">
+</head>
+<body>
+  <% if current_page?(root_path) %>
+    <% if notice %>
+      <p class="alert alert-success"><i class="fa fa-check"></i> <%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+    <%= yield %>
+  <% else %>
+    <div id="wrapper">
+      <%= render 'partials/navbar' %>
+    <div id="page-wrapper">
+      <div class="container-fluid">
+      <% if notice %>
+        <p class="alert alert-success"><i class="fa fa-check"></i> <%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+      <div id="content">
+        <% unless current_page?(new_user_session_path) || current_page?(user_session_path) || current_page?(new_user_registration_path) %>
+        <ol class="breadcrumb">
+          <%= render_breadcrumbs :separator => ' / ' %>
+        </ol>
+        <% end %>
+        <%= yield %>
+      </div>
+      </div>
+    </div>
+    </div>
+  <% end %>
+</body>
+</html>

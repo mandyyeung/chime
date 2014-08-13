@@ -1,0 +1,39 @@
+<% if @list.phrases %>
+<h3><%= @list.name %></h3>
+<% @list.phrases.each do |p| %>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <voice-player id="ch-<%= p.id %>" accent="zh-CH" text="<%= p.chinese %>"></voice-player>
+              <script>
+              window.addEventListener('polymer-ready', function(e) {
+                  var form = document.querySelector('#ch-f-<%= p.id %>'),
+                      element = document.querySelector('#ch-<%= p.id %>');
+
+                  form.addEventListener('submit', function(e) {
+                      e.preventDefault();
+                      element.speak();
+                  });
+              });
+              </script>
+
+              <form id="ch-f-<%= p.id %>" class="pull-right">
+                <fieldset>
+                  <button class="btn btn-lg btn-default"><i class="fa fa-microphone"></i></button>
+                </fieldset>
+              </form>
+
+        <ruby>
+          <rb class="panel-title chinese"><%= p.chinese %></rb>
+          <rt class="pinyin"><%= p.pinyin %></rt>
+        </ruby>
+        <p>Definition: <%= p.definition %> &nbsp; <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_phrase_path(p.id) %></p>
+    </div>
+    <div class="panel-body">
+        <form role="form">
+          <textarea class="form-control" rows="3" placeholder="Notes"></textarea>
+        </form>
+    </div>
+  </div>
+<% end %>
+<% end %>
+<%= button_to "Add a Phrase", new_list_phrase_path(@list), :class => "btn btn-lg btn-warning", method: :get %>

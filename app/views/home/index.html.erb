@@ -1,0 +1,77 @@
+<p class="top">Made with <font color="#ff000">&hearts;</font> at the Flatiron School
+</p>
+
+<!-- Warming Up -->
+<script src="http://pupunzi.com/mb.components/mb.YTPlayer/demo/inc/jquery.mb.YTPlayer.js"></script>
+
+<!--Video Section-->
+<section class="content-section video-section">
+  <div class="pattern-overlay">
+  <a id="bgndVideo" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=PY2oOvdO9RY',containment:'.video-section', quality:'large', autoPlay:true, mute:true, opacity:1}">bg</a>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+        <h1>Chime</h1>
+        <h3><a href="/lists" class="main_link">Let's Learn Chinese!</a></h3>
+        <center><button class="btn btn-primary" data-toggle="modal" data-target="#logIn"><i class="fa fa-sign-in"></i> Log In</button>
+        </center>
+     </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Video Section Ends Here-->
+
+<!-- Modal -->
+<div class="modal fade" id="logIn" tabindex="-1" role="dialog" aria-labelledby="logInLabel" aria-hidden="true" data-replace="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="logInLabel"><i class="fa fa-lock"></i>  Log In</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for(resource, as: resource_name, :html => {:class => "form-horizontal", :role => "form"}, url: session_path(resource_name)) do |f| %>
+          <div class="form-group">
+              <%= f.label :email, class: "col-sm-3 control-label" %>
+              <div class="col-sm-8">
+                <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"Email", required: true %>
+              </div>
+          </div>
+
+
+          <div class="form-group">
+              <%= f.label :password, class: "col-sm-3 control-label" %>
+              <div class="col-sm-8">
+                <%= f.password_field :password, autocomplete: "off", required: true, class: "form-control", placeholder: "Password" %>
+              </div>
+          </div>
+
+
+          <% if devise_mapping.rememberable? -%>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-8">
+                    <div class="checkbox">
+                      <%= f.check_box :remember_me %>
+                      <%= f.label :remember_me %>
+                    </div>
+                </div>
+            </div>
+          <% end -%>
+
+          <div class="form-group last">
+              <div class="col-sm-offset-3 col-sm-8">
+                <%= f.submit "Sign in", class: "btn btn-success btn-sm" %>
+                <button type="reset" class="btn btn-default btn-sm">
+                Reset</button>
+              </div>
+          </div>
+          <% end %>
+      </div>
+      <div class="modal-footer">
+        <span class="pull-left">Not registered?
+        <%= link_to 'Sign up here!', new_user_registration_path %></span>
+        </div>
+    </div>
+  </div>
+</div>
