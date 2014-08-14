@@ -3,7 +3,7 @@ class PhrasesController < ApplicationController
   def new
     @list = List.find(params[:list_id])
     add_breadcrumb '<a href="/lists"><i class="fa fa-list"></i> Home</a>'.html_safe
-    add_breadcrumb "<a href='/lists/#{@list.id}'><i class='fa #{@list.icon}'></i> #{@list.name}</a>".html_safe    
+    add_breadcrumb "<a href='/lists/#{@list.id}'><i class='fa #{@list.icon}'></i> #{@list.name}</a>".html_safe
     @phrase = @list.phrases.build
   end
 
@@ -44,6 +44,11 @@ class PhrasesController < ApplicationController
   end
 
   def index
+    add_breadcrumb '<a href="/lists"><i class="fa fa-list"></i> Home</a>'.html_safe
+    @search = Phrase.search do
+      fulltext params[:search]
+    end
+    @phrases = @search.results
   end
 
   private

@@ -21,13 +21,16 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'font-awesome-rails'
 gem "breadcrumbs_on_rails"
+gem 'sunspot_rails'
 
 group :development do
   gem 'sqlite3'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'sunspot_solr'
 end
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

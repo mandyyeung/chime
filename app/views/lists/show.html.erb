@@ -1,5 +1,7 @@
 <% if @list.phrases %>
-<h3><%= @list.name %> (<%= @list.phrases.count %>)</h3>
+<h3><%= @list.name %> (<%= @list.phrases.count %>)
+<%= link_to "+", new_list_phrase_path(@list) %>
+</h3>
 <% @list.phrases.each do |p| %>
   <div class="panel panel-info">
     <div class="panel-heading">

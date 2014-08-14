@@ -1,29 +1,13 @@
-<h3>Your Lists</h3>
-<% if current_user.lists %>
-<div class="row">
-<% current_user.lists.each do |l| %>
-    <div class="col-lg-3 col-md-6">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa <%= l.icon %> fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <h3><%= l.name %></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="panel-footer">
-              <span class="pull-left">
-              <%= link_to "#{l.phrases.count} Phrases", list_path(l.id) %></span>
-              <span class="pull-right">
-              <%= link_to '<i class="fa fa-arrow-circle-right"></i>'.html_safe, list_path(l.id) %></span>
-              <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
+<% if @phrases %>
+  <ol>
+    <h1>Results: <%= @phrases.count %></h1>
+    <% @phrases.each do |p| -%>
+      <li><h2><%= link_to "#{p.chinese}", phrase_path(p.id) %></h2>
+      Definition: <%= p.definition %>
+      <p><i class="fa fa-arrow-right"></i> <%= link_to "#{p.list.name}", list_path(p.list.id) %></p>
+      </li>
+    <% end -%>
+  </ol>
+<% else %>
+  <h3>No results found!</h3>
 <% end %>
-</div>
-<% end %>
-<%= button_to "Add a List", new_list_path, :class => "btn btn-lg btn-warning", method: :get %>

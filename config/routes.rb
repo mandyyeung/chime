@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   resources :users, only: :show
   resources :user_lists, only: :create
   resources :lists do
-    resources :phrases, shallow: true
+    resources :phrases, only: [:new, :create]
   end
+
+  resources :phrases, only: [:index, :show, :edit, :update, :destroy]
 
 
   # Example of regular route:
