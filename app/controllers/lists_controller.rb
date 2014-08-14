@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
+  before_action :verify_user
   skip_before_action :verify_user, only: [:new, :create, :index]
-  #before_action :verify_user
 
   def new
     add_breadcrumb '<a href="/lists"><i class="fa fa-list"></i> Home</a>'.html_safe
@@ -12,6 +12,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     respond_to do |format|
       if @list.save
+        current_user.lists << @list
         format.html { redirect_to @list, notice: 'List was successfully created' }
       else
         format.html { render action: 'new'}

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
   root :to => 'home#index'
   resources :users, only: :show
+  resources :user_lists, only: :create
   resources :lists do
     resources :phrases, shallow: true
   end
