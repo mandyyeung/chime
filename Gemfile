@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.1.4'
-gem 'sqlite3'
+gem 'pg'
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -23,6 +23,7 @@ gem 'font-awesome-rails'
 gem "breadcrumbs_on_rails"
 
 group :development do
+  gem 'sqlite3'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
