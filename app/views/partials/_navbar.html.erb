@@ -7,7 +7,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/lists"><i class="fa fa-bell"></i> Chime <span class="slogan">- Chinese Phrases for Travelers</span></a>
+          <a class="navbar-brand" href="/lists"><i class="fa fa-bell"></i> Chime <span class="slogan">- Practical Chinese To-Go</span></a>
       </div>
       <!-- Top Menu Items -->
       <ul class="nav navbar-right top-nav">
@@ -32,7 +32,8 @@
               </form> -->
           </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <%= image_tag current_user.gravatar_url(:size => 30), class: "gravatar" %>
                   Hello, <%= current_user.first_name %>! <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li>

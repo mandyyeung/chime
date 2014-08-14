@@ -21,6 +21,11 @@
     <%= f.text_field :icon, class: "form-control" %><br>
   </div>
 
+  <div class="checkbox">
+    <%= f.check_box :public? %>
+    <%= f.label :public? %><br>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

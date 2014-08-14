@@ -104,7 +104,7 @@ textarea {
 
 #custom-search-form {
         margin:0;
-        margin-top: 10px;
+        margin-top: 16px;
         padding: 0;
     }
 
@@ -138,3 +138,9 @@ textarea {
     .search-query:focus + button {
         z-index: 3;
     }
+
+.gravatar {
+  border-radius: 20%;
+  -moz-border-radius:20%;
+  -webkit-border-radius: 20%;
+}

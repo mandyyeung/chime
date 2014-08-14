@@ -18,6 +18,9 @@
               <span class="pull-left">
               <%= link_to "#{l.phrases.count} Phrases", list_path(l.id) %></span>
               <span class="pull-right">
+              <%= link_to '<i class="fa fa-minus-circle"></i>'.html_safe, user_list_path(UserList.where(list_id: l.id, user_id: current_user.id).pluck(:id).first), method: :delete %>
+              <!-- Quite hacky; need to fix later -->
+              <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_list_path(l.id) %>
               <%= link_to '<i class="fa fa-arrow-circle-right"></i>'.html_safe, list_path(l.id) %></span>
               <div class="clearfix"></div>
             </div>

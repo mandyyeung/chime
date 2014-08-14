@@ -1,3 +1,5 @@
+require 'carrierwave/orm/activerecord'
+
 class Phrase < ActiveRecord::Base
   belongs_to :list
   has_many :user_phrases
@@ -6,4 +8,6 @@ class Phrase < ActiveRecord::Base
   searchable do
     text :chinese, :definition
   end
+
+  mount_uploader :image, ImageUploader
 end

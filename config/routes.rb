@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
   root :to => 'home#index'
   resources :users, only: :show
-  resources :user_lists, only: :create
+  resources :user_lists, only: [:create, :destroy]
   resources :lists do
     resources :phrases, only: [:new, :create]
   end

@@ -11,4 +11,13 @@ class UserListsController < ApplicationController
     end
   end
 
+  def destroy
+    @user_list = UserList.find(params[:id])
+    @user_list.destroy
+    respond_to do |format|
+      format.html { redirect_to lists_path, notice: 'List was successfully removed from your collection' }
+      format.json { head :no_content }
+    end
+  end
+
 end

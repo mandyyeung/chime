@@ -1,4 +1,4 @@
-<% if @phrases %>
+<% if @phrases.count >= 1 %>
   <ol>
     <h1>Results: <%= @phrases.count %></h1>
     <% @phrases.each do |p| -%>
@@ -10,4 +10,12 @@
   </ol>
 <% else %>
   <h3>No results found!</h3>
+  <p>
+    Try checking out these resources for phrases to add to your lists:
+    <ul>
+      <li><%= link_to "Wikitravel.org", "http://wikitravel.org/en/Chinese_phrasebook_-_Traditional", :target => "_blank" %></li>
+      <li><%= link_to "Fodors.com", "http://www.fodors.com/language/chinese/basic-phrases/", :target => "_blank" %></li>
+      <li><%= link_to "Dummies.com", "http://www.dummies.com/how-to/content/the-essentials-of-chinese-words-and-phrases-for-tr.html", :target => "_blank" %></li>
+    </ul>
+  </p>
 <% end %>

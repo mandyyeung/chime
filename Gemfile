@@ -22,6 +22,10 @@ gem 'devise'
 gem 'font-awesome-rails'
 gem "breadcrumbs_on_rails"
 gem 'sunspot_rails'
+gem 'gravtastic'
+gem 'rmagick'
+gem 'mini_magick'
+gem 'carrierwave'
 
 group :development do
   gem 'sqlite3'

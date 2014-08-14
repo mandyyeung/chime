@@ -5,7 +5,7 @@ class ListsController < ApplicationController
   def new
     add_breadcrumb '<a href="/lists"><i class="fa fa-list"></i> Home</a>'.html_safe
     @list = List.new
-    @lists = List.all - current_user.lists
+    @lists = List.where(public?: 1) - current_user.lists
   end
 
   def create
@@ -29,7 +29,7 @@ class ListsController < ApplicationController
     set_list
     respond_to do |format|
       if @list.update(list_params)
-        format.html { redirect_to @list, notice: 'List was successfully updated'}
+        format.html { redirect_to lists_path, notice: 'List was successfully updated'}
       else
         format.html { render action: 'edit'}
       end
@@ -54,7 +54,7 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:id, :name, :icon)
+    params.require(:list).permit(:id, :name, :icon, :public?)
   end
 
   def verify_user

@@ -23,15 +23,22 @@
           <rb class="panel-title chinese"><%= @phrase.chinese %></rb>
           <rt class="pinyin"><%= @phrase.pinyin %></rt>
         </ruby>
+
         <p>Definition: <%= @phrase.definition %></p>
+
     </div>
 
     <div class="panel-body">
+      <span id="image">
+        <%= image_tag @phrase.image_url(:thumb), align: "right" if @phrase.image? %>
+        <!-- <img src="http://placehold.it/350x150" align="right"/> -->
+      </span>
       <div id="canvasDiv">
         <canvas id="canvasCH" width="500px"></canvas><br>
         <input type="button" id="clear" value="Clear">
       </div>
     </div>
+
   </div>
 
 <script type="text/javascript">

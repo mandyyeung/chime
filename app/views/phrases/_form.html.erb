@@ -26,6 +26,15 @@
     <%= f.text_field :definition, class: "form-control"  %><br>
   </div>
 
+  <div class="field">
+    <%= f.file_field :image %>
+  </div>
+  <br>
+  <div class="field">
+    <%= f.label :remote_image_url, "or image URL:" %>
+    <%= f.text_field :remote_image_url %>
+  </div>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>

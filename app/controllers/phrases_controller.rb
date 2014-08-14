@@ -1,5 +1,13 @@
 class PhrasesController < ApplicationController
 
+  def index
+    add_breadcrumb '<a href="/lists"><i class="fa fa-list"></i> Home</a>'.html_safe
+    @search = Phrase.search do
+      fulltext params[:search]
+    end
+    @phrases = @search.results
+  end
+
   def new
     @list = List.find(params[:list_id])
     add_breadcrumb '<a href="/lists"><i class="fa fa-list"></i> Home</a>'.html_safe
@@ -43,14 +51,6 @@ class PhrasesController < ApplicationController
 
   end
 
-  def index
-    add_breadcrumb '<a href="/lists"><i class="fa fa-list"></i> Home</a>'.html_safe
-    @search = Phrase.search do
-      fulltext params[:search]
-    end
-    @phrases = @search.results
-  end
-
   private
 
   def set_phrase
@@ -58,7 +58,7 @@ class PhrasesController < ApplicationController
   end
 
   def phrase_params
-    params.require(:phrase).permit(:id, :chinese, :pinyin, :definition, lists_attributes: [:id])
+    params.require(:phrase).permit(:id, :chinese, :pinyin, :definition, :image, :remote_image_url, lists_attributes: [:id])
   end
 
 
