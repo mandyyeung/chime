@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
   authenticated :user do
-    root :to => 'lists#index', as: :authenticated_root
+    root :to => redirect('/lists'), :as => :authenticated_root
   end
-  root :to => 'home#index'
+  root :to => redirect('/users/sign_in')
   resources :users, only: :show
   resources :user_lists, only: [:create, :destroy]
   resources :lists do

@@ -1,4 +1,4 @@
-<h2><%= @user.first_name %>'s Profile</h2>
+<h2><%= @user.first_name %>'s Profile (<%= link_to 'Edit', edit_user_registration_path(@user) %>)</h2>
 <div class="form-group">
     <label for="disabledFirstName">First Name: </label>
     <input class="form-control" id="disabledFirstName" type="text" placeholder="<%= @user.first_name %>" disabled="">

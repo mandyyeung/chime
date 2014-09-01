@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140814154125) do
+ActiveRecord::Schema.define(version: 20140901010436) do
 
   create_table "characters", force: true do |t|
     t.integer "rank"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140814154125) do
     t.string  "definition"
     t.integer "list_id"
     t.string  "image"
+    t.integer "rating"
   end
 
   create_table "user_lists", force: true do |t|

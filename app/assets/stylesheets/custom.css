@@ -39,11 +39,21 @@ a:hover {
 }
 
 /* line 34, /Users/mandyyeung/Development/sci_fair/chime/app/assets/stylesheets/custom.css.scss */
+@media (min-width: 768px) {
+  .slogan {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.5em;
+    position: absolute;
+    top: 18px;
+    left: 105px;
+  }
+}
+
 .slogan {
   font-family: 'Nunito', sans-serif;
   font-size: 0.5em;
   position: absolute;
-  top: 17px;
+  top: 18px;
   left: 105px;
 }
 
@@ -172,4 +182,39 @@ textarea {
   border-radius: 20%;
   -moz-border-radius: 20%;
   -webkit-border-radius: 20%;
+}
+
+.phrase_edit {
+  color:"#8a6d3b";
+}
+
+#canvasDiv {
+  display:block;
+  width:50%;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  font-size: 30px;
+}
+
+.rating span.star {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+}
+.rating span.star:hover {
+  cursor: pointer;
+}
+.rating span.star:before {
+  content: "\f006";
+  padding-right: 5px;
+  color: #999999;
+}
+.rating span.star:hover:before,
+.rating span.star:hover ~ span.star:before {
+  content: "\f005";
+  color: #e3cf7a;
 }

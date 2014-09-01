@@ -1,3 +1,23 @@
+<script charset="utf-8">
+  $(document).ready( function(){
+    //Get the canvas &
+    context var c = $('#canvasDiv');
+    var ct = c.get(0).getContext('2d');
+    var container = $(c).parent();
+
+    //Run function when browser resizes
+    $(window).resize( canvasDiv );
+
+    function respondCanvas(){
+        c.attr('width', $(container).width() ); //max width
+        c.attr('height', $(container).height() ); //max height
+    }
+
+    //Initial call
+    respondCanvas();
+
+});
+</script>
 <div class="panel panel-warning">
     <div class="panel-heading">
       <voice-player id="ch-<%= @phrase.id %>" accent="zh-CH" text="<%= @phrase.chinese %>"></voice-player>
@@ -24,7 +44,10 @@
           <rt class="pinyin"><%= @phrase.pinyin %></rt>
         </ruby>
 
-        <p>Definition: <%= @phrase.definition %></p>
+        <p>
+          Definition: <%= @phrase.definition %>
+          <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_phrase_path(@phrase.id), class:"phrase_edit" %>
+        </p>
 
     </div>
 
@@ -33,8 +56,8 @@
         <%= image_tag @phrase.image_url(:thumb), align: "right" if @phrase.image? %>
         <!-- <img src="http://placehold.it/350x150" align="right"/> -->
       </span>
-      <div id="canvasDiv">
-        <canvas id="canvasCH" width="500px"></canvas><br>
+      <div id="canvasDiv" role="canvasDiv">
+        <canvas id="canvasCH" width="1000px" height="300px"></canvas><br>
         <input type="button" id="clear" value="Clear">
       </div>
     </div>
