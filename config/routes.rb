@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   authenticated :user do
     root :to => redirect('/lists'), :as => :authenticated_root
   end
-  root :to => redirect('/users/sign_in')
+  root :to => 'home#index'
   resources :users, only: :show
   resources :user_lists, only: [:create, :destroy]
   resources :lists do
