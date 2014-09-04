@@ -17,7 +17,7 @@ test:
   <<: *default
   database: db/test.sqlite3
 
-prouduction:
+production:
   adapter: postgresql
   host: localhost
   username: user
