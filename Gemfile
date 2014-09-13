@@ -12,12 +12,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', group: :development
 gem 'devise'
 gem 'font-awesome-rails'
-gem "breadcrumbs_on_rails"
+gem 'breadcrumbs_on_rails'
 gem 'sunspot_rails'
 gem 'gravtastic'
 gem 'rmagick'
 gem 'mini_magick'
 gem 'carrierwave'
+gem 'capybara'
+gem 'puma'
 
 group :development do
   gem 'sqlite3'
